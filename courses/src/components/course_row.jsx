@@ -1,38 +1,56 @@
 import React, { Component } from 'react';
 
-var course1 = {course_name: 'CSC108',
-              course_disc: 'Intro',
-              course_grade: 90};
+const course_list = [
+{
+"id":1,
+"course_name":"CSC108",
+"description":"Into to Programming"
+},
+{
+"id":2,
+"course_name":"CSC207",
+"description":"Software Design"
+},
 
-var course2 = {course_name: 'CSC207',
-              course_disc: 'cc',
-              course_grade: 80};
+{
+"id":3,
+"course_name":"STA260",
+"description":"Probability and Statistics"
+}
+]
 
 class CourseRowComponent extends Component {
 
-  state = {
-
-    courses: [course1, course2],
-    coursek: ['1','2']
-
-  };
+  constructor(props) {
+    super(props);
+    this.state = { course_list };
+  }
 
   render(){
 
     return (
-    <div>
-       {  this.state.courses.map( c => <td> {c.course_name } </td>) } 
-       {  this.state.courses.map( c => <td> {c.course_disc } </td>) }
+    <React.Fragment>
+      {this.state.course_list.map(course => (
 
-    </div>);
+      <tr key = {course.id}>
+            <td>
+              <h2>{course.course_name}</h2>
+              <p>{course.description}</p>
+            </td>
+            <td>80</td>
+      </tr>
 
-  }
+      ))}
 
-  addRow(){
-
-  }
+    </React.Fragment>
+    );
 
 
 }
+
+}
+
+
+
 
 export default CourseRowComponent;

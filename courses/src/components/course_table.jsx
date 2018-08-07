@@ -17,10 +17,7 @@ class CourseTableComponent extends Component {
             <th scope='col'>Course Name</th>
             <th scope='col'>Course Grade</th>
           </tr>
-
-          <tr>
             <CourseRowComponent/>
-          </tr>
 
       </table>
       <button className='btn btn-success btn-sm'> Add a course </button>
