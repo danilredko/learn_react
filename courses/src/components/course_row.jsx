@@ -14,8 +14,7 @@ class CourseRowComponent extends Component {
               <h3>{this.props.course_name}</h3>
               <p>{this.props.desc}</p>
             </td>
-            <td>80 <DeleteCourseComponent CourseKey = {this.props.CourseKey} />
-            </td>
+            <td>80 <button onClick={this.handleDeleteCourse} className='btn btn-danger'> Delete </button> </td>
       </tr>
     </React.Fragment>
     )
@@ -23,8 +22,23 @@ class CourseRowComponent extends Component {
 
 }
 
+//Custom Functions
+  handleDeleteCourse = (e) => {
+    e.preventDefault();
+    console.log( 'in delete course')
+
+    this.props.onDeleteCourse(this.props.course_name)
+  }
+
+
 
 }
+
+
+
+
+
+
 
 
 

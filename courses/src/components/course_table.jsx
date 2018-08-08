@@ -50,7 +50,7 @@ class CourseTableComponent extends Component {
             <CourseRowComponent CourseKey={course.id}
             course_name={course.course_name}
             desc={course.description}
-            onDelete={this.onDeleteCourse}/> ))}
+            onDeleteCourse={this.onDeleteCourse}/> ))}
 
     </React.Fragment>
 
@@ -70,7 +70,6 @@ class CourseTableComponent extends Component {
       </table>
       <AddCourseComponent onAddCourse={this.onAddCourse} />
 
-    <DeleteCourseComponent onDeleteCourse={this.onDeleteCourse} />
     </React.Fragment>
 
 
@@ -90,12 +89,12 @@ class CourseTableComponent extends Component {
     })
   }
 
-  onDeleteCourse(deleteId){
-    console.log(deleteId, 'course_table')
+  onDeleteCourse(deleteCourse){
+    console.log(deleteCourse, 'course_table')
     var UpdatedCourseList = this.state.course_list;
 
     for (var i = 0; i < UpdatedCourseList.length; i++)
-    if (UpdatedCourseList[i].id && UpdatedCourseList[i].id === deleteId) {
+    if (UpdatedCourseList[i].id && UpdatedCourseList[i].course_name === deleteCourse) {
         UpdatedCourseList.splice(i, 1);
         break;
     }
